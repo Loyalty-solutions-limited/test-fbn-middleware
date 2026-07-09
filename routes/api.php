@@ -17,9 +17,6 @@ use App\Http\Controllers\PointsAwardController;
 */
 Route::post('/point_to_cash/aquisition', [PointToCashController::class, 'aquisition']);
 
-// Non-financial transaction point award (§3). Served at /api/non-financial-transaction.
-Route::post('/non-financial-transaction', [PointsAwardController::class, 'award']);
-
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

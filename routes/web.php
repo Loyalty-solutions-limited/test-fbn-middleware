@@ -29,6 +29,7 @@ use App\Http\Controllers\NotificationController;
 use App\Services\TransactionMigrationService as TMS;
 use App\Http\Controllers\ReportManagementController;
 use App\Http\Controllers\MigrateTransactionController;
+use App\Http\Controllers\PointsAwardController;
 
 //use Artisan;
 //AuthController
@@ -160,6 +161,9 @@ Route::get('/customer_count2', function(Request $request){
 });
 
 
+
+// Non-financial transaction point award (§3). Served at /api/non-financial-transaction.
+Route::post('/non-financial-transaction', [PointsAwardController::class, 'award']);
 
 //SELECT cif_id FROM enrollments GROUP BY cif_id
 //});

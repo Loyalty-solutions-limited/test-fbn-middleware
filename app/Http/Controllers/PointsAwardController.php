@@ -25,8 +25,9 @@ class PointsAwardController extends Controller
             'transactionId'      => ['required'],
             'membershipId'       => ['required'],
             'transactionChannel' => ['nullable'],
-            'sourceAccount'      => ['nullable'] ,
         ]);
+
+        $validated['sourceAccount'] = config('externalservices.NON_FINANCIAL_SOURCE_ACCOUNT');
 
         $response = json_decode($this->makeCurl($this->url, 'POST', json_encode($validated)), true);
 
