@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 class PointsAwardController extends Controller
@@ -12,6 +13,9 @@ class PointsAwardController extends Controller
     {
         
         $this->url = config('externalservices.NON_FINANCIAL_TRANSACTION');
+        if(!$this->url){
+        throw new Exception('Unauthorized or token expired');
+        }
     }
 
 
