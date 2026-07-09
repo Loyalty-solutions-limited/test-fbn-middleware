@@ -14,7 +14,7 @@ class PointsAwardController extends Controller
         
         $this->url = config('externalservices.NON_FINANCIAL_TRANSACTION');
         if(!$this->url){
-        throw new Exception('Unauthorized or token expired');
+        throw new Exception('Service Url expected');
         }
     }
 
