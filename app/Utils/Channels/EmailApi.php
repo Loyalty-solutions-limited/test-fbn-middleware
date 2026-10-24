@@ -61,7 +61,7 @@ class Email
         }
     }
 
-    private function setConfigs(String $replyTo = null)
+    private function setConfigs(?String $replyTo = null)
     {
         $variables = json_decode($this->configInst->config);
 

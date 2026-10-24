@@ -31,9 +31,6 @@ class CurlService{
             }else{
                 $error_msg = '';
             }
-
-                    curl_close($ch);
-
                     return $result;
         }
 
@@ -47,16 +44,12 @@ class CurlService{
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         $phoneList = curl_exec($ch);
-        curl_close($ch);
         $result = curl_exec($ch);
         if (curl_errno($ch)) {
             $error_msg = curl_error($ch). "";
         }else{
             $error_msg = '';
         }
-
-                curl_close($ch);
-
                 return $result;
     }
 

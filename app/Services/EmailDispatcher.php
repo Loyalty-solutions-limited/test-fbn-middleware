@@ -889,7 +889,6 @@ Alternatively, you can access your loyalty account via your Mobile and Online Ba
 
         $response = curl_exec($curl);
         print_r($response);
-        curl_close($curl);
         if (curl_errno($curl)) {
             return 0;
         }

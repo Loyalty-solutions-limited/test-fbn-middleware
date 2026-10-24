@@ -191,14 +191,10 @@ class LogEmailsController extends Controller
 
         if (curl_errno($curl)) {
             $error = curl_error($curl);
-            curl_close($curl);
             return response()->json(['error' => $error], 500);
         }
 
         $response = curl_exec($curl);
-
-
-        curl_close($curl);
         return $response;
     }
 

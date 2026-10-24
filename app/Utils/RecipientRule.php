@@ -8,7 +8,7 @@ class RecipientRule
 {
     private $channelTypeRule;
 
-    public function __construct(String $channelTypeRule = null)
+    public function __construct(?String $channelTypeRule = null)
     {
         $this->channelTypeRule = $channelTypeRule;
     }

@@ -23,7 +23,7 @@ class MigrationService {
     {
 
     }
-    protected static function pushToPERX($url="https://fbnperxlive-amfgcwc2d9g0e9av.francecentral-01.azurewebsites.net/api/v1/index.php", $postFields, $payload)
+    protected static function pushToPERX($url, $postFields, $payload)
     {
 
         $curl= curl_init();
@@ -43,9 +43,6 @@ if (curl_errno($ch)) {
 }else{
 	$error_msg = '';
 }
-
-        curl_close($ch);
-
         return $result;
     }
     public static function string_encrypt($string, $key, $iv) : string{

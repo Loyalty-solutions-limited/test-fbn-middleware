@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// FirstBank's scan flags the PHP version announced in X-Powered-By (expose_php = On).
+// Drop it here too, so the version stays hidden even if php.ini on the server is wrong.
+header_remove('X-Powered-By');
+
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance

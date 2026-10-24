@@ -32,7 +32,7 @@ class NotifyService implements INotifyService
         $this->channelCode = null;
     }
 
-    public function grabTemplates(Object $notType, Array $variables = [], $program_id)
+    public function grabTemplates(Object $notType, Array $variables, $program_id)
     {
         $templates = $this->templateRepo->getTemplates($notType, $program_id,request()->channelsConfigured);
 

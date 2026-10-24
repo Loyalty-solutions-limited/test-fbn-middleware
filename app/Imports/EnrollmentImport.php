@@ -19,7 +19,8 @@ class EnrollmentImport implements ToCollection,WithHeadingRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    public function collection(Collection $rows)
+    // maatwebsite/excel 4 declares this void; the JSON it used to return was never read by the library.
+    public function collection(Collection $rows): void
     {
         $enrollment = new Enrollment();
         $records = $rows;
@@ -79,7 +80,6 @@ class EnrollmentImport implements ToCollection,WithHeadingRow
 
         }
          $data['status'] = 2029;
-        return json_encode($data);
     }
 
 
