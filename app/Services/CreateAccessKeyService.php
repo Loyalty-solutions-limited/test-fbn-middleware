@@ -64,8 +64,6 @@ class CreateAccessKeyService {
         
 
         $result = curl_exec($curl);
-        curl_close($curl);
-     
     }
 
 }

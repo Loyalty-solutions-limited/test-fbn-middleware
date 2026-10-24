@@ -182,7 +182,7 @@ class LoyaltyProgramController extends Controller
 
     }
 
-    private function view_loyalty_programs($status = null, $company_id)
+    private function view_loyalty_programs($status, $company_id)
     {
 
             $view = DB::table('loyalty_programs')

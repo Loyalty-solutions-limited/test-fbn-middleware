@@ -68,7 +68,6 @@ class processTransaction extends Command
         $response = curl_exec($curl);
         echo "..." . curl_error($curl);
         exit;
-        curl_close($curl);
         return $response;
     }
 }

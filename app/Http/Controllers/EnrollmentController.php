@@ -100,7 +100,7 @@ class EnrollmentController extends Controller
         }
     }
 
-    private function add_enrollment($first_name, string $middle_name = null, $last_name, $branch, $loyalty_program_id, $email, int $phone=null, $member_no, $tier_id, $cif_id)
+    private function add_enrollment($first_name, ?string $middle_name, $last_name, $branch, $loyalty_program_id, $email, ?int $phone, $member_no, $tier_id, $cif_id)
     {
         $pin = time();
         $password = $first_name.'@'.time();
@@ -133,7 +133,7 @@ class EnrollmentController extends Controller
         return Enrollment::where('id', $user_id)->update(['first_login' => 1, 'first_login_time'=> Carbon::now()]);
     }
 
-    private function edit_enrollment_name($id, $first_name, string $middle_name = null, $last_name)
+    private function edit_enrollment_name($id, $first_name, ?string $middle_name, $last_name)
     {
         try {
             $edit = Enrollment::where('id', $id)->update(['first_name' => $first_name, 'middle_name' =>$middle_name, 'last_name'=>$last_name]);
@@ -144,7 +144,7 @@ class EnrollmentController extends Controller
         }
     }
 
-    private function edit_enrollment_contact($id, int $phone = null, $email)
+    private function edit_enrollment_contact($id, ?int $phone, $email)
     {
         try {
             $edit = Enrollment::where('id', $id)->update(['phone_number' => $phone, 'email' =>$email]);
