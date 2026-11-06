@@ -29,6 +29,7 @@ class AuthController extends Controller
              return $this->sendBadRequestResponse($validator->errors());
          }
 
+        
         // 
         $user = User::where(['email' => $request->email])->first();
 
