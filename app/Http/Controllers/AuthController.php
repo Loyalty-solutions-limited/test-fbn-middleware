@@ -199,7 +199,7 @@ class AuthController extends Controller
 
     }
 
-    private function edit_user_contact($id, $phone, $email)
+    private function edit_user_contact($id, $phone = null, $email)
     {
         try
         {
