@@ -15,7 +15,7 @@ class TransactionReportExport implements FromCollection
         $this->log_id = $log_id;
     }
     
-    public function collection(): \Illuminate\Support\Enumerable
+    public function collection()
     {
         return Transaction::where('transaction_log_id', $this->log_id)->get();
     }

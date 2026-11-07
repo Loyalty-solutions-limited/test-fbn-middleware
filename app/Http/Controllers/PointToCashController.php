@@ -68,6 +68,9 @@ public function makeCurl($url, $action, $data)
     ));
 
     $response = curl_exec($curl);
+
+    
+    curl_close($curl);
     // return $response;
 }
 }

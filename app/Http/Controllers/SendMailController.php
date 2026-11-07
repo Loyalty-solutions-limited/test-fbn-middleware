@@ -32,7 +32,7 @@ class SendMailController extends Controller
 
         // print_r($data);
 
-        $sendmail = self::forwardMailToBank($data);
+        $sendmail = $this->sendMailGuzzle($data);
 
         Log::debug("Response from email service for " . $request->acid . " " . json_encode($sendmail));
 

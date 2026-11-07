@@ -27,7 +27,7 @@ class EnrollmentsImport implements ToModel// SkipsOnError, WithValidation, Skips
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    public function model(array $row): \Illuminate\Database\Eloquent\Model|array|null
+    public function model(Array $row)
     {
 
           DB::table('enrollments')->insert([
@@ -41,7 +41,6 @@ class EnrollmentsImport implements ToModel// SkipsOnError, WithValidation, Skips
             'password' => Hash::make('password'),
         ]);
 
-        return null;
     }
 
     public function rules(): array

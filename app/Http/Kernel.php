@@ -18,8 +18,10 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        // No CORS: the callers are servers, not browsers.
+        \Fruitcake\Cors\HandleCors::class,
+        \App\Http\Middleware\Cors::class,
         \App\Http\Middleware\TrustProxies::class,
+        \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -49,6 +51,8 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \App\Http\Middleware\Cors::class,
+            
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -65,7 +69,8 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $middlewareAliases = [
+    protected $routeMiddleware = [
+        'cors' => \App\Http\Middleware\Cors::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -75,8 +80,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'scopes' => \Laravel\Passport\Http\Middleware\CheckToken::class,
-        'scope' => \Laravel\Passport\Http\Middleware\CheckTokenForAnyScope::class,
+        'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
+        'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
         'Admin_go'=>\App\Http\Middleware\AdminAccess::class,
         'check.program' =>\App\Http\Middleware\CheckProgram::class,
         'verifiedToken' => EnsureTokenIsValid::class,

@@ -59,9 +59,7 @@ class Controller extends BaseController
         return response()->json($response,404);
     }
 
-    // Was sendMailGuzzle(): LogEmailsController declares an instance method with that name, which
-    // is a fatal error ("Cannot make static method ... non static") as soon as the class loads.
-    public static function forwardMailToBank($request)
+    public static function sendMailGuzzle($request)
 {
         $url = env('POINTS_TO_CASH_URL') . "email/send-email";
 
@@ -86,7 +84,7 @@ class Controller extends BaseController
 
 }
 
-    public static function pushToPERX($url, $postFields, $payload)
+    public static function pushToPERX($url="https://fbnperxlive-amfgcwc2d9g0e9av.francecentral-01.azurewebsites.net/api/v1/index.php", $postFields, $payload)
     {
 
         $curl= curl_init();
@@ -106,6 +104,9 @@ class Controller extends BaseController
         }else{
             $error_msg = '';
         }
+
+        curl_close($ch);
+
         return $result;
     }
 
