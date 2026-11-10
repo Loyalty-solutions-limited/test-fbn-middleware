@@ -33,7 +33,7 @@ class PointsAwardController extends Controller
         ]);
 
 
-        // $response = json_decode($this->makeCurl($this->url, 'POST', json_encode($validated)), true);
+         $response = json_decode($this->makeCurl($this->url, 'POST', json_encode($validated)), true);
         $response = ['responseCode' => '00', 'responseMessage' => 'Successful'];
         if (is_array($response) && isset($response['responseCode']) && $response['responseCode'] === '00') {
             return response()->json([
